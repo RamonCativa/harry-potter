@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react"
 
-export function Peticiones({ nombre, resultado }) {
+export function Peticiones({ nombre }) {
 
     const [personajes, setpersonajes] = useState([])
 
     async function obtenerdatos() {
         let respuesta = await fetch("https://api.potterdb.com/v1/characters?filter[name_cont]=" + nombre)
         let datos = await respuesta.json()
-        console.log(datos.data)
+        console.log(datos)
         setpersonajes(datos.data)
     }
 
     useEffect(() => {
-
-        obtenerdatos()
+        if(nombre !== ""){
+            obtenerdatos()
+        }
+        
     }, [nombre])
 
     return <>

@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Peticiones } from './componentes/peticiones'
+import { Filtros } from './componentes/Filtros'
 
 function App() {
   const [resultado, setresultado] = useState([])
@@ -11,7 +12,9 @@ function App() {
 
   return (
     <>
-      <Peticiones nombre={"harry "}/>
+      <Filtros setnombre={setnombre}/>
+      <Peticiones nombre={nombre}/>
+
     </>
   )
 }
